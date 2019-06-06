@@ -1,0 +1,301 @@
+body{
+margin:0px;
+padding: 0px;
+background-image: url("Images/Background.jpg");
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.header, .footer{
+  width: 100%;
+  background-image: url("Images/footer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+}
+
+.headerButton, .contactsHeaderButton{
+  width:auto;
+  height: auto;
+  background-image: linear-gradient(180deg, gray, lightgray);
+  color:white;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.headerButton{
+  font-size: 45px;
+  margin-top: 10px;
+}
+.contactsHeaderButton{
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.footerButton{
+
+}
+
+.container{
+  margin-top: 5em;
+  margin-bottom: 5em;
+  width: 100%;
+}
+
+
+.headerButton:hover, .footerButton:hover{
+  color: red;
+  background-color: white;
+  transition: 0.5s ease-out;
+  background-image: linear-gradient(180deg, lightgray, gray);
+}
+
+.headerButton:active, .footerButton:active{
+background-image: linear-gradient(white,white);
+border-bottom: 2px solid black;
+  transition: 0.1s ease-out;
+}
+
+.textarea{
+  margin:0px auto;
+  width: 70%;
+  height: auto;
+  font-size: 20px;
+  font-weight: 600;
+display: none;
+}
+
+.title{
+  font-size: 20px;
+  font-weight:700;
+
+}
+
+
+
+.container .row h3{
+  font-size: 30px;
+      width: 100%;
+      height: 70px;
+      border-bottom: 2px solid black;
+}
+
+.footer h3:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border:  solid 1px #333;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    box-shadow: #000 0 -1px 0;
+}
+
+.footer li, .container .row li{
+    width: 30%;
+    min-width: 95px;
+    margin-left: 2.8%;
+    margin-bottom: 15px;
+    line-height: 130%;
+    font-size: 11px;
+    text-align: center;
+}
+
+.footer li{
+  float: left;
+}
+
+.footer ul li, .container .row ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 30px;
+    display: inline-table;
+}
+
+.container .row ul li{
+  margin: 50px auto;
+}
+
+.container .row .boss li{
+  width: 85%;
+  height: 250px;
+}
+
+.footer li:first-child, .row li:first-child{
+    margin-left: 3.5%;
+}
+
+.footer a, .footer strong {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.container .row span{
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+}
+
+.container .row span img{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.container .row  strong {
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+
+
+.header{
+  height: 100px;
+}
+
+.headerDiv{
+float: left;
+width:150px;
+height: 80%;
+margin-left: 30px;
+margin-top:10px;
+border-right: 1px solid black;
+
+}
+
+.container .row ul{
+  margin-top: 60px;
+  margin-bottom: 5em;
+  text-align: center;
+}
+
+
+
+.container .row .boss{
+  text-align: center;
+  margin: 40px auto;
+  width: 100%;
+}
+/*AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
+.container .row .boss img{
+
+  border-radius: 0px;
+
+}
+.container .row .boss strong{
+font-size: 30px;
+margin: 0px auto;
+}
+
+.strongDiv{
+  width: 55%;
+  text-align: center;
+  height: auto;
+}
+
+.container .row .boss h5{
+  font-size: 25px;
+width: 55%;
+
+}
+/*AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
+
+.all{
+  display: none;
+  width: 100%;
+  height: 200%;
+  position: fixed;
+  bottom: 0px;
+  background-color: gray;
+  opacity: 0.9;
+  z-index: 3;
+  margin:none;
+  padding: none;
+  transition: 0.5s ease-out;
+}
+
+.viewDiv{
+  position: fixed;
+  top:10%;
+  left:30%;
+  width: 40%;
+  height: 70%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.92));
+  border-radius: 10px;
+  font-weight: 600;
+  z-index: 4;
+  color: black;
+  border: 1px dotted  black;
+  text-align: center;
+transition: 0.5s ease-out;
+overflow: scroll;
+}
+
+.viewDivButton{
+  display: none;
+  width: 30%;
+  height: auto;
+  color: white;
+  background-color: rgb(50, 4, 4);
+  margin: 10px auto;
+  z-index: 5;
+  border-radius: 10px;
+}
+
+.description{
+  width: 80%;
+  height:  80%;
+font-size: 20px;
+font-weight: 500;
+border: 2px solid black;
+z-index: 5;
+text-align: center;
+display: none;
+margin: 10px auto;
+background-image: linear-gradient(rgb(255, 255, 255), rgb(208, 208, 208));
+border-radius: 10px;
+color: black;
+overflow: scroll;
+}
+
+.hiddenAdd, .hiddenEdit, .viewDivButton{
+  display: none;
+}
+
+.addNew{
+  margin: 20px auto;
+  width:80%;
+  height: auto;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darkblue;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href= "public/style.css">
+  <script src="functions.js"></script>
+
+<body>
+  <div class="all" id="all">
+  </div>
+  <div id="infoblock">
+
+<div  id="header">
+  <div class="headerDiv">
+    <button @click="openAddButton()" type="button" class="headerButton">Добавить</button>
+  </div>
+</div>
+
+  <div class="viewDiv" id="viewDiv" style="display:none;">
+    <div class="description" id="description"></div>
+    <button type="button" class="viewDivButton" id="viewDivButton" @click="close">Закрыть</button>
+    <p class="addNew" >
+    <input type="text" v-model="name" value="" placeholder="Заголовок для новости" class="hiddenAdd textarea hiddenEdit"><br>
+    <input class="hiddenAdd textarea hiddenEdit" type="text" style="width:360px;"  v-model="img" value="" placeholder="Фото(введите цифру от 1 до 15)" ><br>
+
+    <textarea class="hiddenAdd textarea hiddenEdit" type="text"  v-model="description" value="" placeholder="Опишите новость" id="inputdesc"></textarea><br>
+
+
+    <button class="hiddenAdd viewDivButton" style="background-color:green;" type="button" name="button" @click="addEll" style="margin: 10px auto;">Добавить</button>
+    <button type="button" class="hiddenAdd viewDivButton" @click="closeAddButton">Закрыть</button>
+    <button type="button" class="hiddenEdit viewDivButton" style="background-color:green;" @click="closeEditButton" id="saveButton">Сохранить</button>
+    </p>
+  </div>
+  <div class="container">
+
+<div class="row">
+<p>
+<div class="col-md-4" v-for="(person) in news">
+  <div class="card mb-1 shadow-sm">
+
+      <img v-bind:src="person.pic" width="80%" style="background-size:cover; margin:10px auto;"/>
+
+    <div class="card-body">
+      <p class="card-text title">{{person.name}}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary" @click="view(person.id)">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary" @click="edit(person.id)">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</p>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+  new Vue({
+    el: '#infoblock',
+    data:
+    {
+      currentId : -1,
+      name:'',
+      description:'',
+      img: "",
+      news:[
+        {name:"В акимате Алматы рассказали о необходимости LRT",description: "ЛРТ Алматы позволит нашим жителям и гостям существенно ускорить передвижение по городу, а также решить проблему перегруженности дорог в центральной части города. Мировой опыт показывает, что в коридорах от 4 до 25 тыс. пассажиров в час именно ЛРТ обеспечивает максимальное качество перевозок. Никакие другие виды транспорта не могут сравниться с ним по экономичности, удобству использования и вписываемости в окружающую городскую среду. В Алматы давно уже разрабатывается проект по разгрузке трафика в центральной части города и именно ЛРТ станет прекрасной альтернативой маршрутным автобусам, троллейбусам и такси. Финансирование транспортного проекта ЛРТ Алматы будет осуществлено по схеме ГЧП (государственно-частного партнерства), где процентное соотношение вложения из бюджета будет составлять 50%. В рамках ГЧП частный партнер, выигравший конкурс на определение частного партнера, примет на себя обязательствa",
+        pic: "public/Images/1.jpg", id:1},
+        {name:"Штормовое предупреждение объявили в 4 областях Казахстана",description: "По данным синоптиков, 23 января в Актюбинской области местами ожидаются метель, гололед. Ветер юго-западный с переходом на северо-западный 15−20 метров в секунду.В Актобе — ночью метель, гололед. В этот же день на большей части в Костанайской области ожидается метель и гололед, ветер юго-западный с переходом на северо-западный 15−20 метров в секунду.",pic: "public/Images/11.jpg", id: 2},
+        {name:"«Кайрат» выиграл у «Астаны» право принять матч за Суперкубок РК",description: "Администрация ПФЛК получила две конкурсные заявки от футбольных клубов «Астана» и «Кайрат». По итогам рассмотрения заявок принято решение о проведении матча в Алматы. Встреча, открывающая новый футбольный сезон, между чемпионом сезона-2018 ФК «Астана» и обладателем Кубка Казахстана ФК «Кайрат» состоится 3 марта 2019 года на стадионе «Центральный», — говорится в сообщении.С 2010 года матчи за Суперкубок проводят только в Астане. Впервые подобная игра проводилась в 1995 году, а возродили турнир в 2008-м — в обоих случаях хозяином был Алматы.",pic: "public/Images/3.jpg", id:3},
+        {name:"Ученые впервые измерили размеры черной дыры в центре Галактики",description: "Большинство астрономов считает, что в центре всех галактик находятся сверхмассивные черные дыры — объекты массой в миллионы и миллиарды Солнц, непрерывно захватывающие и поглощающие материю. Часть ее черная дыра «пережевывает» и выбрасывает в виде джетов — тонких пучков плазмы, разогнанной до околосветовых скоростей.",pic: "public/Images/4.jpg", id:4},
+        {name:"111 автобусов поместили на штрафстоянку в Шымкенте",description: "Как сообщила пресс-служба ДВД Шымкента, в ходе ОПМ зарегистрировано, в общей сложности, 785 правонарушений. В частности, установлено наличие в автобусах загрязняющих веществ, нарушения правил перевозки пассажиров и грузов.",pic: "public/Images/2.jpg", id:5},
+        {name:"В акимате Алматы рассказали о необходимости LRT",description: "ЛРТ Алматы позволит нашим жителям и гостям существенно ускорить передвижение по городу, а также решить проблему перегруженности дорог в центральной части города. Мировой опыт показывает, что в коридорах от 4 до 25 тыс. пассажиров в час именно ЛРТ обеспечивает максимальное качество перевозок. Никакие другие виды транспорта не могут сравниться с ним по экономичности, удобству использования и вписываемости в окружающую городскую среду. В Алматы давно уже разрабатывается проект по разгрузке трафика в центральной части города и именно ЛРТ станет прекрасной альтернативой маршрутным автобусам, троллейбусам и такси. Финансирование транспортного проекта ЛРТ Алматы будет осуществлено по схеме ГЧП (государственно-частного партнерства), где процентное соотношение вложения из бюджета будет составлять 50%. В рамках ГЧП частный партнер, выигравший конкурс на определение частного партнера, примет на себя обязательствa",
+        pic: "public/Images/5.jpg", id:6}
+      ]
+    },
+    methods:{
+      addEll(){
+        length = this.news.length +1;
+        desc = $("#inputdesc")[0].value;
+
+        if(!isNaN(parseInt(this.img))){
+          if(this.name.replace(/\s/g,'') != ""){
+            if(this.description.replace(/\s/g,'') != ""){
+              var ob = {
+                name: this.name,
+                description: desc,
+                pic: "public/Images/" + this.img + ".jpg",
+                id: length
+              };
+              this.news.push(ob);
+
+            }
+            else{
+              alert("Вы не можете опубликовать новость с пустым описанием");
+            }
+
+          }
+          else{
+            alert("Вы не можете опубликовать новость с пустым заголовком");
+          }
+        }
+        else{
+          alert("Вы ввели недопустимое число для фотографии");
+        }
+      },
+      view(id){
+        $("#description")[0].innerText= this.news[id-1].description;
+        $("#viewDiv")[0].style.display = "block";
+        $("#all")[0].style.display = "block";
+        $("#viewDivButton")[0].style.display = "block";
+        $("#description")[0].style.display = "block";
+      },
+      close(){
+        $("#description")[0].innerText = '';
+        $("#viewDiv")[0].style.display = "none";
+        $("#all")[0].style.display = "none";
+        $("#viewDivButton")[0].style.display = "none";
+        $("#description")[0].style.display = "none";
+      },
+      openAddButton(){
+        $("#viewDiv")[0].style.display = "block";
+        $("#all")[0].style.display = "block";
+
+        elements = $(".hiddenAdd");
+        for(i = 0; i < elements.length;i++){
+          elements[i].style.display = "block";
+        }
+      },
+      closeAddButton(){
+        $("#viewDiv")[0].style.display = "none";
+        $("#all")[0].style.display = "none";
+
+        elements = $(".hiddenAdd");
+        for(i = 0; i < elements.length;i++){
+          elements[i].style.display = "none";
+        }
+      },
+       ChangeLocation(location){
+        window.location.href = "http://localhost:3000/" + location;
+      },
+      edit(id){
+          this.currentId = id;
+          $("#viewDiv")[0].style.display = "block";
+          $("#all")[0].style.display = "block";
+
+          elements = $(".hiddenEdit");
+          for(i = 0; i < elements.length;i++){
+            elements[i].style.display = "block";
+          }
+          elements[0].value = this.news[id-1].name;
+          elements[2].value = this.news[id-1].description;
+          elements[1].value = this.news[id-1].id;
+
+      },
+      closeEditButton(){
+        $("#viewDiv")[0].style.display = "none";
+        $("#all")[0].style.display = "none";
+        var elements = $(".hiddenEdit");
+
+        this.news[this.currentId-1].name = elements[0].value;
+        this.news[this.currentId-1].description = elements[2].value;
+         this.news[this.currentId-1].pic = "public/Images/"+elements[1].value + ".jpg";
+         for(i = 0; i < elements.length;i++){
+           elements[i].style.display = "none";
+         }
+      }
+    }
+  });
+</script>
+</body>
+</html>
